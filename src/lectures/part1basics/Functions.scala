@@ -52,20 +52,29 @@ object Functions extends App{
   aFactorial(5)
   1
    */
-  def aFactorial(n: Int): Int = {
-    if(n == 1) 1
+  def aFactorial(n: Int): Int =
+    if(n <= 0) 1
     else n * aFactorial(n-1)
-  }
 
   //println(aFactorial(4))
 
   //3.
-  def aFibonacci(n: Int): Int = {
-    if (n == 1) 1
-    else if (n == 2) 1
+  def aFibonacci(n: Int): Int =
+    if (n <= 2) 1
     else aFibonacci(n - 1) + aFibonacci(n - 2)
+
+
+  //println(aFibonacci(10))
+
+  // 4. one wa
+  def isPrime(n: Int): Boolean = {
+    def isPrimeUntil(t: Int): Boolean =
+      if (t <= 1) true
+      else t % 2 != 0 && isPrimeUntil(t-1)
+
+    isPrimeUntil(n / 2)
   }
 
-  println(aFibonacci(10))
+  println(isPrime(23 * 23))
 
 }
